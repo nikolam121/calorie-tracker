@@ -25,8 +25,9 @@ A web app for logging food and tracking daily calorie and macronutrient intake. 
 The app uses ES modules, so it needs to be served over HTTP rather than opened directly from the filesystem.
 
 ```bash
-git clone https://github.com/nikolam121/Nutrient_Tracker.git
-cd Nutrient_Tracker
+git clone https://github.com/nikolam121/calorie-tracker.git
+cd calorie-tracker
+cp config.example.js config.js   # then fill in your Firebase and Edamam keys
 python -m http.server 8000
 ```
 
@@ -34,18 +35,18 @@ Then open `http://localhost:8000`.
 
 ## Configuration
 
-Firebase and Edamam credentials live in `config.js`.
+Firebase and Edamam credentials live in `config.js`, which is not committed (it is listed in `.gitignore`). Copy `config.example.js` to `config.js` and fill in your own values.
 
-Because this is a static client-side app with no backend, any key it uses is visible to visitors. The Firebase web API key is designed to be public, access is controlled by Firestore security rules, not by hiding the key. The Edamam credentials are not, so keep them on a free-tier key and rotate them if the quota starts getting drained. Moving the food lookups behind a small backend proxy is the proper fix if this ever needs to scale.
+Because this is a static client-side app with no backend, the keys in `config.js` are still visible to anyone using the running app. The Firebase web API key is designed to be public: access is controlled by Firestore security rules, not by hiding the key. The Edamam key is not, so keep it on a free-tier plan and replace it if the quota starts getting used up. Moving the food lookups behind a small backend proxy is the proper fix if this ever needs to scale.
 
 ## Project structure
 
 ```
-index.html    Tracker page
-main.js       Food search, entry state, totals, Firestore sync
-main.css      Shared styles and design tokens
-auth.html     Sign up / log in page
-auth.js       Firebase Authentication flows
-auth.css      Auth page layout
-config.js     Firebase and Edamam configuration
+index.html          Tracker page
+main.js             Food search, entry state, totals, Firestore sync
+main.css            Shared styles and design tokens
+auth.html           Sign up / log in page
+auth.js             Firebase Authentication flows
+auth.css            Auth page layout
+config.example.js   Template for config.js (Firebase and Edamam keys)
 ```

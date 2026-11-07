@@ -1,0 +1,6 @@
+# Local keys: copy config.example.js to config.js
+config.js
+
+# Editor settings
+.vscode/
+.idea/

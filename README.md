@@ -39,6 +39,10 @@ Firebase and Edamam credentials live in `config.js`, which is not committed (it 
 
 Because this is a static client-side app with no backend, the keys in `config.js` are still visible to anyone using the running app. The Firebase web API key is designed to be public: access is controlled by Firestore security rules, not by hiding the key. The Edamam key is not, so keep it on a free-tier plan and replace it if the quota starts getting used up. Moving the food lookups behind a small backend proxy is the proper fix if this ever needs to scale.
 
+## Deployment
+
+The site is published to GitHub Pages by the workflow in `.github/workflows/deploy.yml`. On every push to `master` it writes `config.js` from the `CONFIG_JS` repository secret (Settings > Secrets and variables > Actions) and publishes the static files, so the keys are not stored in the repository.
+
 ## Project structure
 
 ```

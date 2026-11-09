@@ -1,13 +1,15 @@
 # Calorie Tracker
 
-A web app for logging food and tracking daily calorie and macronutrient intake. Search a food database, log portions by weight, and see running totals for calories, protein, fat, and carbohydrates.
+A web app for logging food and tracking calorie and macronutrient intake. Search a food database, log portions by weight, and see running totals for calories, protein, fat, and carbohydrates.
+
+Live demo: https://nikolam121.github.io/calorie-tracker/
 
 ## Features
 
 - **Food search with autocomplete**, type a food name and pick from live suggestions backed by the Edamam food database. Requests are debounced so typing doesn't fire one call per keystroke.
 - **Portion-based logging**, enter an amount in grams; macros are calculated from the per-100g values returned by the API.
 - **Live totals**, calories, protein, fat, and carbs update as entries are added or removed.
-- **Works without an account**, the tracker is fully usable logged out (entries stay in the browser tab). Logging in carries those entries over to your account rather than discarding them.
+- **Works without an account**, the tracker is fully usable logged out (entries are kept in the browser's local storage). Logging in carries those entries over to your account rather than discarding them.
 - **Saved history**, signed-in users have their entries stored per-user in Firebase Firestore and synced live across tabs.
 - **Responsive**, single-column layout on mobile, no horizontal scrolling at any width.
 
